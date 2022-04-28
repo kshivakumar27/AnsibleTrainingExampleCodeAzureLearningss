@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: install web component
+    apt: name={{item}} update_cache=yes state=latest
+    with_items:
+    - apache2
+    - libapache2-mod-wsgi
+    - python-pip
+    - python-virtualenv
+  
